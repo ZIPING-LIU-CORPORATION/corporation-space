@@ -1298,21 +1298,22 @@ align-self: center;">
                       scrolling="auto"
                       width="80%"
             style="height:max(120px, 84%)"></iframe> -->
-            <div id="adobe-dc-view"></div>
-            <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-           
-            <script type="text/javascript">
-              document.addEventListener("adobe_dc_view_sdk.ready", function()
-              {
-                  var adobeDCView = new AdobeDC.View({clientId: "d64d4a8fb4c34cc193ab35a210f47511", divId: "adobe-dc-view"});
-                  adobeDCView.previewFile(
-                 {
-                    content:   {location: {url: "https://suntzuping.s3.ap-east-1.amazonaws.com/ASELIPSKY/Confidentiality+Agreement.pdf"}},
-                    metaData: {fileName: "Bodea Brochure.pdf"}
-                 });
-              });
-           </script>
+     
           </div>
+          <div id="adobe-dc-view"></div>
+          <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+         
+          <script type="text/javascript">
+            document.addEventListener("adobe_dc_view_sdk.ready", function()
+            {
+                var adobeDCView = new AdobeDC.View({clientId: "d64d4a8fb4c34cc193ab35a210f47511", divId: "adobe-dc-view"});
+                adobeDCView.previewFile(
+               {
+                  content:   {location: {url: "https://suntzuping.s3.ap-east-1.amazonaws.com/ASELIPSKY/Confidentiality+Agreement.pdf"}},
+                  metaData: {fileName: "Bodea Brochure.pdf"}
+               });
+            });
+         </script>
                     </div>
                 </div>
               </div>
