@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://getbootstrap.com/docs/4.0/components/collapse/#via-javascript -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Jekyll v3.7.0">
+
+<title>Collapse · Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.0/components/collapse/">
+
+<!-- Bootstrap core CSS -->
+
+<style class="anchorjs"></style><link href="./bootstrap_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<!-- Documentation extras -->
+
+<link href="./bootstrap_files/docsearch.min.css" rel="stylesheet">
+
+<link href="./bootstrap_files/docs.min.css" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.0/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Collapse">
+<meta name="twitter:description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social-logo.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.0/components/collapse/">
+<meta property="og:title" content="Collapse">
+<meta property="og:description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+
+<script async="" src="./bootstrap_files/analytics.js"></script><script defer="" src="./bootstrap_files/script.js" data-site="ITUSEYJG"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+  <style>@font-face {
+	font-family: "wticons";
+	src: url("data:font/woff2;charset=utf-8;base64,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") format("woff2");
+}
+
+.wticons {
+	line-height: 1;
+}
+
+.wticons:before {
+	font-family: wticons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.wticon-account:before {
+	content: "\f101";
+}
+.wticon-add:before {
+	content: "\f102";
+}
+.wticon-cardResizeDrag:before {
+	content: "\f103";
+}
+.wticon-casual:before {
+	content: "\f104";
+}
+.wticon-check:before {
+	content: "\f105";
+}
+.wticon-checkSmall:before {
+	content: "\f106";
+}
+.wticon-chevron:before {
+	content: "\f107";
+}
+.wticon-copy:before {
+	content: "\f108";
+}
+.wticon-copySmall:before {
+	content: "\f109";
+}
+.wticon-dismiss:before {
+	content: "\f10a";
+}
+.wticon-downChevron:before {
+	content: "\f10b";
+}
+.wticon-error:before {
+	content: "\f10c";
+}
+.wticon-expand:before {
+	content: "\f10d";
+}
+.wticon-feedback:before {
+	content: "\f10e";
+}
+.wticon-filledDownArrow:before {
+	content: "\f10f";
+}
+.wticon-find:before {
+	content: "\f110";
+}
+.wticon-formal:before {
+	content: "\f111";
+}
+.wticon-gift:before {
+	content: "\f112";
+}
+.wticon-grayLogo:before {
+	content: "\f113";
+}
+.wticon-ignore:before {
+	content: "\f114";
+}
+.wticon-info:before {
+	content: "\f115";
+}
+.wticon-leftChevron:before {
+	content: "\f116";
+}
+.wticon-logo:before {
+	content: "\f117";
+}
+.wticon-love:before {
+	content: "\f118";
+}
+.wticon-noRecommendations:before {
+	content: "\f119";
+}
+.wticon-paragraphRewrite:before {
+	content: "\f11a";
+}
+.wticon-paste:before {
+	content: "\f11b";
+}
+.wticon-pin:before {
+	content: "\f11c";
+}
+.wticon-premium:before {
+	content: "\f11d";
+}
+.wticon-premiumDetail:before {
+	content: "\f11e";
+}
+.wticon-premiumFull:before {
+	content: "\f11f";
+}
+.wticon-recommendationLight:before {
+	content: "\f120";
+}
+.wticon-recommendationLightCard:before {
+	content: "\f121";
+}
+.wticon-recommendationLightNoSuggestions:before {
+	content: "\f122";
+}
+.wticon-refine:before {
+	content: "\f123";
+}
+.wticon-rewrite:before {
+	content: "\f124";
+}
+.wticon-rightChevron:before {
+	content: "\f125";
+}
+.wticon-rocket:before {
+	content: "\f126";
+}
+.wticon-sentenceExamples:before {
+	content: "\f127";
+}
+.wticon-settings:before {
+	content: "\f128";
+}
+.wticon-shorten:before {
+	content: "\f129";
+}
+.wticon-tutorial:before {
+	content: "\f12a";
+}
+.wticon-unlock:before {
+	content: "\f12b";
+}
+.wticon-warn:before {
+	content: "\f12c";
+}
+.wticon-WordtuneButton:before {
+	content: "\f12d";
+}
+.wticon-x:before {
+	content: "\f12e";
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvc2hhcmVkL0ljb25zLmZvbnQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Q0FDQyxzQkFBc0I7Q0FDdEIsNjNTQUE2M1M7QUFDOTNTOztBQUVBO0NBQ0MsY0FBYztBQUNmOztBQUVBO0NBQ0MsK0JBQStCO0NBQy9CLGtCQUFrQjtDQUNsQiw4QkFBOEI7Q0FDOUIsbUJBQW1CO0FBQ3BCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCIiwic291cmNlc0NvbnRlbnQiOlsiQGZvbnQtZmFjZSB7XG5cdGZvbnQtZmFtaWx5OiBcInd0aWNvbnNcIjtcblx0c3JjOiB1cmwoXCJkYXRhOmZvbnQvd29mZjI7Y2hhcnNldD11dGYtODtiYXNlNjQsZDA5R01nQUJBQUFBQUJ2c0FBc0FBQUFBUVdRQUFCdVpBQUVBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUhJa1lCbFlBakJBSzJ3akpKUUUyQWlRRGduQUxnVG9BQkNBRmhBb0hobWtiL3paVkliQnhBSkF3blJKUmxLeE5TUGIvbHdSdFNxZ3NIdEoyTDJqR3JDRGJLWHNSaVRUNlZLUkYwSWQyR2ZrS0hxTjkxVVdhTVRSYVhGdC85UlVxeUYxUHlTL3ZxRy9jVUVwNC9wbXI5d1lHbHBBU25pVERXQ0JXZTc2dUZJQkNWdGxYSUFDdWVaL2k3NHNDcWFaWjRlalI1aW44Z01NMVRUOEFobWliQjArWTBJb05Jb0lWSUFJU0VqWkttY0dpYkZ3YXhTck1yVjJwbTR2V1pUdHhsUzdhaFM2U283VTJ0bnBpZXkvaVJEeFR5Wjh5TVJLYXRrYklIZ0dEODBJZWNSQ0RPVFdwT1pTY1lhQTA0TkNBV1ZDRWpaL2tBK3Z1SjkzOUhLY0VhUnNhTUJ2MmwrcHZPLzE3K25DeFcvZlkyeGpqVEVBUUdwQjRRc1JORVRhMU9hNVRPbGw5S2dpRHpiZldyOTdlVjBOTUxwSEZ2QlRTN054OS9zN083UmZmSGN6dUw3Ym9IU2FXUk93RWMyODhraVdUMXozVElkRXNVZ3FsV0szUWlNQkQzS3VhTWUwSFBNOGVZa2pHbkpaWVd1cUZZZzNXNmlYcWxSWk5JSzBZVjdmYVRkK0JtN2tpcEoreDJlK0IwN3UyR3BreUxFVE01ZjNjRVJRdzdKSkRIYVNMVGNiejE3LzZoR1U2czE4RlNkMUsvdjY3cjVNMC9PZ2x6b3JrV1J3Znc2UjlvYi81S1ZiS0pxNVVJZTNWSHJwSTc5aVZUN3hmTEZERnpWTWxtRXdXbThPbDBYZzhDWlBPaGJyZTg0MFhzWEVHWDM4UlV3S2hTRm9ndzJmSVNocVdGekFWRkpVWWNuTEdETEZVVkVreUxNR2tXK2F6T09LV2FBalpaYVVTWWsyVUdLRno2aXAwZCtJY0ExdDBTSWlicGxpQ0FDemZVbElTY0hnTXJxaFpITEx3dDVLZnRib3N2cWlEbTFmRnJac3d3bExqcUFzVGZWeENoRXNlRHBWd3A5YTl1QlhjK1ZHeDJaMm1MWkw5ak83cXNuaGIxdW83RUFvMDZDY1d1TG02c2dmOXlBeHIzeGRHK1pxUmh6b25nWnIwMFYyQnM0VUhHaUtPd0tXNFNrbkFWWXlwV2RQaW5sUVlIWW1UWXZ4UDB6NU4wakhMbFVreHNPdFJwcW1lSjRhU2lweTA1RnF5TWV4MklXYUZibWEraE1YblVIVkRMWk1zaDJZcXNFTG5hTEJLeEVWTGtpdHMrVlZ0bGl6TElsMmtzVkliVE5wMGJOV0lMTTJWR2Erdkg4aU9ONkwxS3d2RWpidFU5SmF2UEdjbUZVd01XWTlVNU5kVFUyb2krOFpFYXJBa1lpdkp5RU1aSStjY0dxR1REbnVGVTN2TjBNaU9HTlRxQ3V6U1ZGR3JRbmRQNzFoMDZJWVZDa0JtVFRSYlowN0FrMW1mWEV2MTRXcG00SUJPbW93WncvTnp4L243Qzg4cEJ1S0VGYnBINDhUajdtNFNHT3dFYUJDSElqbG43bnZzaVdzZDJyR3NuSXFhaGo0bC9IOFpKQmlMMWQ4QVB3WTNYdmxBTXdoQkZZc3dONk42aU43aUw3cWxQLzhCL2VqdGRXdkJBREdnZ2ROcm1yL2FvWlpUYXFCRjRpbk44TWYrMFFNVm1EVkpvMHNyS212b2VOOW5maWo5Ly8veGRhcWU4T3MrOUVVSmE2NHBLbWF0VzlUbS9ybGt5SU9XZ2JxTW5vNjJycFNpUGtPVHlWdFRLS3NyUkFweVNrUkxoVCtUcG0xbE5VK3EwaFRCM21HT1NVZ2FNbUxVdUFtVHBzeVlOV2ZlZ2lYTFZxeGFzMkhUbG0yNzl1dzdjT1RZcVRQbkxseTZjdTNHclR2M0hqeEJTVEZOdERiMVRLOERNRVFKcEJid1dnenBHR3UrSjIxazgvRFBQeTA1VmdYNEE5Y3VxNTZxQ3FET1VZRDJnS28xNER0VHRFQ0tBUWlvZzVBTWlPaUJOQjFRcEEzSzdTNXZBVWlCUnJ2SVhnRDY0SFVNOEFaTjhDWW1lQXNQdkUwQTNxRUIzaVVMM2lNUDNpY0NIMUlBSDVFREgxTUNuK0NBVDdIQVoxVEFGL2pnUzBMd0ZTNzRHaHQ4UXhsOFN3MTh4eFA0bmlyNEladUdZSU9nUlFBYUJIUUl4Q0FpQWRFaUNURmlDR0xGQ01TSlVZZ1g0NUJJVEVCaU1RbEp4QlFrRlRPUVRNeENjakVIS2NROHBCUUxrRW9zUVlKWWh0UmlCZElRcTVDbVdJTzB4QWFrTFRZaEhiRUY2WXB0U0Uvc1F2cGlEeklRKzVDaE9JQ014QkZrTEk0aEUzRUttWW96eUV5Y1ErYmlBcklRbDVDbHVJS3N4RFZrTFc0Z0czRUwyWW83eUU3Y1EvYmlBWElvcnAwbHZPUjk4Qk4rTTM0RTRlVXptQ01zZ3VLVDZaRVJzZUpZSWd2UlhCQnFLalFuQnBZcHhkUm15QWhiWUNpeE5TbGI0Q3c0YlVXNzVnYnYyMXpVdmNRK2kydVJvV2puMURWYXVWeFFQOWJVV2QzdjhSZHA2cDNuVVQxWStWbFJHV090LzNiemc1UFNGWTBrYnJiYnhucFZPWC9HWGpkZnhIN05qanExbGp3UElSMkdJTlZ4d1RIclhmc0F2YVp3NGZzQ0c5OHU4Y0wzQTN4Q1IxSGxxMjczWVorNDNpZ1NQYXAzM3Z6UTlpRWVJTG9rTmdPRE9vSGlYaUNZKzMrdE5yZm0vb3JicjVmZFhIVTNjdG1GZ3I4NDZDbjZhYk1EREx0SjNQaWlQajB6bm42VW42OXozaUVBQVF3d3hFMEVHd3o2YkQ4OS9XWHJIK0RuQjF4SlBtNnlmLzBiL1BYblgvQnZ2WWtKMkpaRE1oMHdPd0RvNWtPZ0d0ZmU0WW5LODZCd0NVR2NCZWVzYmtHbkowZ0x3b2tGbS9ta25SMmk3VWNtdE00YlRrWW9pZklYZFQvUWlwQlBQR25VWkEwZlBNSis5UVQ2eE9NS3plZlh5YWV3ejA5UDVON2k5Mm56YzBkSWE3ZkpZVTZQc25QeEE5NDhLaGNqMWVEZmVlZXFjVVF1Um1tbnk3a1dueDhhRHZOeDhydjRnZjJzYTUxZmVmTXEyTnBpcGllZG1MVzFwNjVYSGcwT1JNaDQ5YzM0aWpRNkVvODArK0ZaRGtManBBalN1ZlJsaUUva0pkcjhMRkNOREZONWtaTVpJNHVaa2JtZEUzbVZKZmtabmFSY1p5KzRCMlhENEdnVUsrOGd6YXA0U2x3VXNyT3FnRFdBbFV4SGxWTVNDTzRQaGprTmhnK0c1ektPSVlPSWNBUVlBb3QweFBxZXV3aEorMms1UWZMalV3QW1neGdncUFIajJhZUo5dm55UWtUKytlY3pPb1cxVzlxNS9KWFM3cjRROWxNa0hla29EbGlocmxEdXN4c3hlNHFOa3V6Mlc4dXhtbmVuS1Rubkh1MHF2WDUvTGxvNTIvVGNiRVlDbVhKdmJhb3NCWVVWc2hCTXQrQWlKSE93cWxZQmFNMDEveW1nd1VvTWpBeEN2ZzRNbTRHT2NwdDJsblNYOVh2VHVxclJza0loMDJ4RzZaNXltM1E4Wm5GSG9CQUp6c3hPYzIzbWhrSldhTFEwRk1pc21tMEd6UFRvYUM1bm9LdTBxNng3RmkrRDRreHZHU2hrWW4yWkJEVE5rQlh1N3IvU1REaHNVMEZwTXRoWkFscWsvMldDbmNFa0xCdXJ0V1B4Y0todmFwODNyWDloZHpobGNTTnN0T0VEbmtVbzMyTW5BbGtnZU5KbkxPNlpMTHZCUFFiN1NqOHpGeTBEOWgrTi9YL3E0ZHJRYVJEaUFxNUFWYll6cnF3K09sd3N2ZUVwWi9FMVk5RlZXN3BMbmtPLytDNi9HdCtjSCsxa0ZNbEVBWUI4R054WW0xZk4rQ2NFTTZ0dUloYjJPbzlCckpiZml4SngvYjE4ZTNYelM5U0hHODBBN1dXNG8zZ00vS05iQnZhc3Vsc1Y4ZlNHR05Fc1Z2RThQQXNRRkxFY2twRk12V3ZUSGMvUEc4UEtPYTMxZnNMcVE1d1c3T3BxdDFmUytkZkFNK3Y3WEhFUjVmb0d0QTZCOGZEWVJqZWtVZXd2MHFxTHNBODdMYjRDZHJEbHF1Zkg4WFZ4QnFpNm5iVzA4cE96bkp2ZFhsa0thVG5vSzUyV21td2E2dEk4TGMwY3BYbDN4N3RhV296SXZhOFRDV1hhNC9Jck1LN056NjdQSGc2R2Y4U2Z4Sy9jZ09JN2ttOGppUVc1OTBSNEhsYnZvdmtQV0RrT01CS0ZkVlRJSERwMDVIdnM4WUt1TGpQT0VuUVRLMkRoR1VFK294MzIzMlhEL3RmMndocFpoTGJIbXNiL05LNytRaXhUSmdscE1nZEJkcXZPa2lXV0JNMTlaaEp2WDJ3b3lJK21MRUtZWlFZSUlYMG9IYUEzNTlEUmpVSWdMZWRhTFpaNW9oNDE3Qm9mb0JzQzlyTXJFZmR6Z3p6VXQ2VjhVZTNaY21BVlJFMmtsYVJib2VIL1NCVUNtQUUvaEJyd016VVBBd1R4eURzNk44NDFHN1l0WFJlT0k5T2d2cmlIYnpRSUhaSGJJcndUSXYySlpYbkFzSmZaWkpMTGJydFF2UGhDQ0lYSXBWdlYwTjYwM09WUDMxN25xRjRJenVmaHhOM0lvQWt5VjgrN0grRHg2bDZRWnUxSVM4YU90ZVdHZERWYkJkdXQ3cjBLQ1hUYmtrR3E1aWhhVW9WbkhYeWVub1h0K2VFWXMwYlJPSGt6UURwS09rdUNyVmxWWDhSWjhhS2FqU3pHS2c4aHFyL2ZsbnkySHhUUVZ4dlZ2VmlqWTRET0FOT3VoVUpDRDdIVC9EQ3BnYWdTcWhzMytEQ0hkOTF5NkRrUjRIdFhmV1c4U3ZqbWJKL3JqNityMzQrSFY4R3pzeDNVMGpwNmJWMjVLZ1N1ZWJ6ZytZZHlJelc2cVhDT01Dc2RxRkNteTFpNG1tMVhjUE5XZUllcVp5THdkQU5mY25qSDJraHJDejBwVjkxZGwwbDQxTnRhK1NEK1pPRVYrSEdYUTA2T2JuOUNxUGNpUWxGSzVHTVBMUjNiUWhxSlBWeVZtZDBkdjdJeFZvWFhwVDBNM3RudEpEV2FuU1BoSnh0L0FIRmpJRjEzZlBFTzZFWXhUU1lEeEVReXhES3ppV0VpSkswUXV4M0xJNnZuTzlBbHlwaGxoWGtLcXlETnorT3BGTVlxQ1ZxM29vQ1N3OXpiblVTRXB2SUZaRTF1N2dxR3lMSjBaQlZMMFBJT28yUUttYzlYWitjc3A1aXZISXV2cFF2WnRHN1dHNG5oT01yejJsOEhZanhTVDhSaitWQnZNV2ViTWpTYWUzSTAweXpIcjlrRmplZUhoeDYvZmhsb2FVM09TV0kxTHpWdjdMZjB1V3k4K2dIRjVmZDZBd1dOelpEZkJRMGp3bmdsWVpEeWN3ZytuWVVnYVFPOC82VUFKRE5BbldYS1AyQ2Z5TjB2NStrYWlFRVZ3UER4eHp6V25yVG1FQzVya2ZiUnBkQzNESVJDc3JiMVgzNzB2NW1vdytvY1ZZRFN6MDhab0RvdTRGRXIvVlFCeDRrMXIwWk5HUmIvMU8rZThGTThQS1hMUlJjUXp4QW5qb3NaN2JFVzQ0a01jWHlBaTY3c0llMUhUV1FOV29yMlB1c2ZvTlpxdFgyTEZpbFFkM2g5SCsyMloyb0diNGhHQUw1YzBFSHcwZFE3MEhCL09nekt6S1FDY09rYVFzS2tkYXhxczc2NExmUTRmZHoxakpBYUdqMHJLbXBXZEZyK3dvdk8vZjN6SGp5NGtIaVY4OXdLcXE3ZUVZbzBJSk1lUkd0Q3VMZWtUcjFqeDVFM2I4YkdPa0JsK3FKRm53WUdWcXo4RDd5cVJndUwyTTlvUTBPOGRQeEtkalkvdTUzWDdvQy9WaTZoNENraFM5R1lqcjZiN0ljazdSTEFMR05uVS9BTzdieU83QlJlYVJHbm1pUWRPaDl2Tmo5NTh2U0pBYXlmR2tERjMvejBLZGhiZTl5bTU5Y2dnN0dXeVJINGZRcm9GWk5pWXRabXhnMHVscncvM2J4bnI5bGtzdkx1MUhSNGgxcWY5K3o1N09Oa1BocUtBOGFIcFZqRzV2UUIzYU5tSHlld2NTTjR4QksrUTEzak0vNnhHemRoQWIraDB4bHFvSXZSUmJadzRUdWZLVzBEb2tNWDVQSVdqQXp6N2lEekRjbFpRZXBoV29xOXhESi9ZbTl1UDdOY3o1Q0VHRWladlNSQVZ3eWFXd3lFVHd2N0I0N1lSem9vb2l2NFJlRUZlZUY2d2FjaWZqNlhtODhycXFySUxRM1B6K1BwK1laNG8vL2MvbjUzVDhJamIwN2VyVFNmT08vb2FPODRuNzBDOXZhTzN1M2YrN3BINWhmTllhaG1KT3Nha3BOalp5UlZGdWxtNit4VWsrbzlVR2lDRkkyYTQ0TnNTV21kSmFQUmk0RTgrTkpwbTNrVEJtVjA1a1htN1QwNFlhM0xhWTh6QW8vQzNZWDNVajVudjM3bklUampzUldqM3VqcXFDdkJsT0pPNFVveHRpVytvT3R1cmhFQis5WGRJbnNoOEQxdG5pWEZOeWtpMnFKQlIvOTd1UDJaWlA3RTNGbFVVMWxTeEJUTG1Xb0wzY29QQ3dKaHVLT0ZSUlk0UW5DTDg1SVpqU3JzMU4rNUdWYm9ITmxsUEFoYzNQYVJOVUMrU3VaZHc1THZlMWcxdTcrRjBtcldIbUQ1NFR2NnpBWllyZjN1SUxZdnFINWZqbzJ5a1NzS0RuVGZJTWJTQ0RCL0N0OGpCRmVRdXdTT3BzZFphVW5SbDAvRmJWKzFOR3J4MEVlY1kwTFJ0dnJUWjg2MStIN3RBLytEdWZ0TE54WHVidE5NVGZOTmNvQ1FMa21XOFU1b0lvOGhRNmxVQlljZTlReWlXZ0V4bDZhMkt4eVNEVDc3VTM3KzVjbmkwakp0KzdReVN5dWtSWEtDTFFsTEVOaW5WZFNoSElJSHUzdGp2ODJhQU5NYWR4QU9QdTVzdmZlbDFuMVZrVmJIbnBUQWN3cWhFTzNZUjlwb2NhcEZrOWYwYm8xVTc4bGRWckx2N3J6cE81Zk1XZjZla0VDYmI3VU9Sc2crSkNNcHlISEdNbWx4WkdTeHRBd240R3JGa1dWU0hMR0Z4aXlxemsyelVnSEFJOVdydG1XN1BwbW9JZW83dDljbXdwUGdoYUh3eEM5eWJHaGkyRXlGWjJQMVkwOG5jbWRlYXpjZ1NWTFFrL1JQZWFOcDRJbFo2UlJmcHdiMFhrdGRZZWl1eklCN3Y5WTBQVEFzTTdDVk5TTFBzSnl3M1RjYmJ1N080WVF4aGNWS2FEMTF4RGZjenhReDdNL3pHNzcvTlNzOTNoQ3Z6Rkt1TnF6dXIrcXVraDlvQ1dHb2t5ZUIzTGVHNXdFTEp0QThXOTZHVmxOVDF2UDFTMW4xaS8zRTBHMklYbEFRZE5ob3ozTDBVS3RGRFIzZTFINk9USDZueUk4cjBYTjVSZlZqUTNyT3JFTDJvRW1FTXdSNFRFM3NPbXNFekRNKyt0TjZvNUtxL0ttZ1hxTnluUWU2eVJRZnp3V04zTENHUmxGalhLT3dFYmhKN3lzOVhabDF0UW9Zejcrb2FZUFBZL1M4V1RsVnB3am1hZ0R2ZDgyY2Q3OE1FMmtqRFZXZmJiOU9VQVRnZ1Q4cW5rN0hGU1FaNFdSOGpGVVNVWGI0Wkh4TGZiVnM2bzFIV010NGVXdnAzbjFuRzMxR2RzSSswaWhkREkyalVUSWxXaUNtd0JETzJWYkpFT0NScFVtcUE0ZXU5dlFoS21Ed3ZPV2tXREFZMmZmc1hmbkJtN0s4SlRkUHk3ZXdndENhV0dzU0JpYndqQ2s4VzBEQkh6ZDI4c1p0RTJDcXBnNzg1c2Z6bSs2TzFMaVhGMnBsNXdnS2VJN0I5Z1J5NkxaVmJ0R2loWk1YcnQ0U25MOHhhVm5lM292VE05Y3NubE56a1JEalZtL1pDc2RsTlVxSWtjVG8ydW5pS1VMaEZQRjB1SUFyVHhGT0YwUEFrNG42YTBHcW04cFZXUjM1bS84UE5LbVA4R2RQd0tpL1M4K2VKWWNmdnJwOCtkWEQ3ZXYyZExyNGovbzdvcUE5cHlEVTBOU1FRSTAyTUlSNmEyWDlMVnFJSmpCUUUrTEhSMUZPZi9qdzB6VHljMHp0WmFINHFJNkF4LzR1bmZ4VkpPeGZVZzZ0ckk5ZlNBQmYvOEc0Y1RPM1lIdnJYLzh4TThzOFo0Nk56ZWlyYzUybEYyeXR0YVZqaG0xRGJBR21vdzlqNkpnbWpiVnRDQWFRZTkwYVE3Zjk2Q3BCSk1LUWtHV2NIZ2ZCR3d4d0pOeFd1aEVIdFN6V28yZ0Y4Rnc0MXFBVDBNaFFLc29qTlJPT05Da3pZYThCUjJJWnlmMjNNa1Q1MjUza2JwYWF2VnhjaFNhM01EZFRoR3Y3aU93QTNrZ0lJeGp4ZTRJemE1VjhaNlNiU2VqNjFuNk5WZkE2OG00VTVVUmRickNYdU1tS3U0aTBET0hXdlhoMlNEaWpOaFB0TWhHT1JtRG14b3Z3U0dvaWlwcEpRQ0VJMHpVcW1xYzZ1U3VzNis3VUxtd1gwTjhBYkxQT1VVa1A2QXFnSzN1Z05YcWRYOERqRlZRQm1LMklCQUVRR0d1V09JZVVXckk0aWFsaFpjL0k0bVN3UXpNNDJROFRKUGpBM3ZJWjJScFdFck5rTVNuMXJhZGVxZmNFR3JxY1lZcWord3NVOSt6N3VXWFVCSG1rN3drVS92UTRVK3hJSE4waEF2OVp4d2hpWi9nSTQ5YlRFaDNwL0pIWUVUN2RTVWxiTDR6TDhHRUg2UmlmOFJFTzlMZ1JpZnZEakZjWitDYkM4ajdMQUU1YXQzOTNKSmxIa3B4bzJCa09pZlZyTmh1alFQdm10ZnBFRHVETVJqTU5VQTFFV0ZZVVE3TUxuSVQybVF3VlF3N1YwN01JbnI5RFU1RE9PamdLc3AwUUhZSkhVT09Rcm5HM2g3ZCtmTG95RWsrUzMxdkpnZ1hDTFdRd0FNR0pFaGdFTzhvSEVEaXpBQnc4N2g1bHQrMSszMzg4QzQvdDYzcjJ6Y3IrRlAzMEVaMHdzVjUwK1laMlJybkVPSmRnSk5TZ3RmSzVQZm1IU3M2U01wbFNsbHdWN1NlYi9UZXZDTjJHR3ZQK3p2YVRSYXV3TktaVXlwU3pRUEFLZmJteS9GR0Nhek00YU9SZHJscWxWNmxRamlwZmU3dllzOU1UbDR4VDV0ckV6L1RYdWtzazdscC9rWEN5VW83VDR6b1AzbkxscWxIazc2NlZTTFM1eEVHMXMwVERkcXZxYVJZMjkxUzVzZkdKTzZ0cmI5MFNMNW40SUNhL0pqL204d05hRUkrYmx4OWVMdUM5elF1aVBRQmIzNWduTmIrWU9BdW03ODJPUW1YeEEzejZvekFZT3RUcTFXbGROdGlSdk5tS3ZRNWhnM1E0YnR3QStwQ0xyY01YZVN3alU3ZXRPc2E5TUwvbm9sbFZpQm9FWWRtRUpSRmhDdHAzeXI2cEtjNmlNWU1Xd0hDYW4wd2NoZWw5dTEwcnRIaUV6M2pvaVVPSFdydzVWWmdEeHNadWZiNzB2TnZnZVFDeVp6Q1diOEwzdzZUQkNpWkZITFhvSHE0WDcwUHhiUGpKakFxV0JodHgrTXJjY0UwZ1B6a2tocUl4R0ZLY29vTjEvRUJWV0hZRm5JQmZmOGZlN0dkZE5uYXZkNnVnU0piTWl4SkowR3B2NU5uWnlQVHVVb3EzZ2hVSkpRTGl2bzRJUFordmo1REhGOThqWjJMS0xUWE82UW1yTklkZkhrdUxGUlE2WmJucTUwUUk5RVg4MUNyeXQ1U1ZMTUoxKzdlZExzNVpMbnVBcjlmelFlRFFPSTZrakpENmNtSnJZcXlod0V6R2p3K1lmUFIyZEN1NkhmWHF0NzJkeWFBaXJHTmlhemkrVXZpU3FHd1orTEZ0VU8yWjJJNWUwMWlzclV0c1RQaU9aSGVIcEpuVk5wbWh0cGt6SmhVN2JLMDFNZUd4QkJ3eHhsMnRTYUdIcTA0cm9laGZHOE9OeFY5YjV5VmpNbVZxZ2ZCU1IySlppOXVBMERJTklvYk12dzA4OXRqa3U1YzAraXRQT1BOeGg5Yk82cEhFMjlHY2RTcU5Bbi9OV1phanQzbmc2TURBS0dtdkhkWnVjL3F2T2x0ck1sbDdkWHM3L2VNQjZyQmk5ZE1XMVRQa0V0U1NaN0VzS001M3JYbWhwYlZnWVBsQVVYL1JJZ0Z2QVZpZTZKanB3ZC9ud1kwVGM5alVVOUpIdE15UGRxTjJhSEl6Z3NlYmpNWVNnSnUwcFNTWG04M2haSE56UndRTVByRGJQL0o2blozRkdxMUdzLzYzOXZjemVNWU9ibmVFVUJuUGFyV0JyOXVnOEM1MjRZWnRtcW5SRVNvS0hHV2JheG1QZ1RUMm5PYUFiTE81SVMvZlNsWGprSFhiZEZ0cmhCTVpFK0ZKeDJxZXZhNjU2TjQrcXcxcEtOVEs1WW5NV3JUNllIQit0cW1lQnMwUE9NazFGM1dQZXQ1QXMyNE53R0EydjVuaDhBNkd5MU1oZFpDTTJReXlHM3FycEpFcXlBWmNyZUFuQ3NEZDhGa0FQWVRZRUlsR0lZd2Z2QjdVbWk2R3NWK2c1eWdDcXlGcU9Ub0hqd2JYZjlCSU9ia0gzY3IyR3dNMUlnNHBxbnRUWllrTUhZU0tmQVI2aHBWQWxzTy9BL2RXQnJkT2VGYy96dEE1aUNDTjBNSUZxSDZvMi93UGdIU3pEaU9yb0swUWthblF4aHpYUW0vY2FlWG9JUFFBQ1JiUUpSRWk0amgwa0tGUmlja2VxQU81NWtOVEk5cXAwRjIvSG1qT3l0RUZLRERMdEZBcGcvcnRISGlJemxEUy9iL3NOdzA4aWEvTXljRUt2bGxZUTI4QXdIVEw1OGRyQWlpK1haQUtGc0QxOG9BQWlEbkxvYzc4Ny84L1NQK25TSDd1U2h3ZDM4bzQrMzVtTTZnTFhuOUtCWmg0UUZ2ZDRPOFdRYkdzajNoQ1cxK2hxMUNYS0pzZ2g4MW0zRXhUYWlvWWxSRUExRU1BNUtqNUgzOHpUWGhBeUNnQTRxNWtGZGpMVDMvYkozNGd2MmFEWmFyeTk0UFpJQUlBWjloS2dBRU5BUURlS2dYZ0gwcms0UHdjbFVDQVp1YmdmOHBVQ2NVV0dFb3N5TEVWc0FiT3NUVkFBMlpzRDN5QS84b2pRQVJwQUFJd2hDV0FBUXlZZXFEZ0ZyTW95TUpJSVN4YVl5T0JIZGdjR3dVd29EKzJGVWdHRnpmR0duZ1dLUDhHOFpvdzM0QXJRYkhoN2kvc0FUaDd3cWJ2Tm9pVGNRZ0lyQVJNTTU0M2VlWTJSV3hqbVdKelFDZ1FBaldKNlFtMGRCT1J0TFcrYm1sUFhhY3BMZ3ppTldHK0FWZUNZbnB6TXRJSDRJeWhQbWtOUFIwYjVkUWhScGI0bFlEaHgzTlBOOC9jSm1MeHRuRWFaSW9OQjN5UUVRV002QU1udXVZSk5DWWRFdzVOMm1MZGFwOWx4VjNIWE55L2VHVzAwRngreDFsRlJrR0ZHZzFhZFA5NTlXT05NY0VVTTh3QlJKaFF4b1ZVMmxqbmd6Q0trelRMaTdLcW03YnJoM0dhbDNYYmovTzZuL2Y3L1ZRUVJ1bE1OcGN2RkV2bFNyVldielJiN1U2MzF4Kzg5TEp4VmgxYlUwRlpDM2FzN1pmVlk5N3BZSE1EMmIvQUhpdFg2Y2hGaFpIV1lOdXY2Z042K2txVDNFWVZRaDFYblRIaEdxNnY3VmQwcC9tYXF6enA5VHFxc2UxclV6bXE5dnphOUlDN2xWZXdDc1BFRmZ4Sm9SbjVhOVAySTV0Z3hrcFAzOXNLQWN3ZW9PMUtCb1lWVzJncTI5eFlUU3V1ckZRdWpUZmVqWnFma2FQS3YwZ01LLzVhZWgzU1NoZStLK0VFeEhULzFqNzBERDRpM1lDbUdBR05FaytZUHlRMVhLRGxwc2tORE93RlZsTmtnZHFqeDJhaHFiQk9BOUdYK0Rhb2N3OUUrZkE2TStKQkNlR3RQbXpiZitiNkordk11NGw4SjlHdXdqdm1KdzJnUTgxbkF4ZDBXNXlETERSZmNhcWtPTlQ4NGZlRytWU0QxbHR4NnluSWh3d29XbXNOKzg4cXBnQjVsRlBFbzh0MVBzVEZoa2Z5Q2JGWG9TbzNzTjhkSzBNd3ZudHNObElRZG9vSTRZZjBPZFQyaTg4VWpSUklHT3dHeUx3WGU1eGdZdXBXTkpQTURYWlpZOXZPSExpdzc5SE9XZ0FBQUFBPVwiKSBmb3JtYXQoXCJ3b2ZmMlwiKTtcbn1cblxuLnd0aWNvbnMge1xuXHRsaW5lLWhlaWdodDogMTtcbn1cblxuLnd0aWNvbnM6YmVmb3JlIHtcblx0Zm9udC1mYW1pbHk6IHd0aWNvbnMgIWltcG9ydGFudDtcblx0Zm9udC1zdHlsZTogbm9ybWFsO1xuXHRmb250LXdlaWdodDogbm9ybWFsICFpbXBvcnRhbnQ7XG5cdHZlcnRpY2FsLWFsaWduOiB0b3A7XG59XG5cbi53dGljb24tYWNjb3VudDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwMVwiO1xufVxuLnd0aWNvbi1hZGQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDJcIjtcbn1cbi53dGljb24tY2FyZFJlc2l6ZURyYWc6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDNcIjtcbn1cbi53dGljb24tY2FzdWFsOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTA0XCI7XG59XG4ud3RpY29uLWNoZWNrOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTA1XCI7XG59XG4ud3RpY29uLWNoZWNrU21hbGw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDZcIjtcbn1cbi53dGljb24tY2hldnJvbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwN1wiO1xufVxuLnd0aWNvbi1jb3B5OmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTA4XCI7XG59XG4ud3RpY29uLWNvcHlTbWFsbDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwOVwiO1xufVxuLnd0aWNvbi1kaXNtaXNzOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTBhXCI7XG59XG4ud3RpY29uLWRvd25DaGV2cm9uOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTBiXCI7XG59XG4ud3RpY29uLWVycm9yOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTBjXCI7XG59XG4ud3RpY29uLWV4cGFuZDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwZFwiO1xufVxuLnd0aWNvbi1mZWVkYmFjazpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwZVwiO1xufVxuLnd0aWNvbi1maWxsZWREb3duQXJyb3c6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMGZcIjtcbn1cbi53dGljb24tZmluZDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExMFwiO1xufVxuLnd0aWNvbi1mb3JtYWw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTFcIjtcbn1cbi53dGljb24tZ2lmdDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExMlwiO1xufVxuLnd0aWNvbi1ncmF5TG9nbzpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExM1wiO1xufVxuLnd0aWNvbi1pZ25vcmU6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTRcIjtcbn1cbi53dGljb24taW5mbzpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExNVwiO1xufVxuLnd0aWNvbi1sZWZ0Q2hldnJvbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExNlwiO1xufVxuLnd0aWNvbi1sb2dvOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTE3XCI7XG59XG4ud3RpY29uLWxvdmU6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMThcIjtcbn1cbi53dGljb24tbm9SZWNvbW1lbmRhdGlvbnM6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTlcIjtcbn1cbi53dGljb24tcGFyYWdyYXBoUmV3cml0ZTpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExYVwiO1xufVxuLnd0aWNvbi1wYXN0ZTpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExYlwiO1xufVxuLnd0aWNvbi1waW46YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMWNcIjtcbn1cbi53dGljb24tcHJlbWl1bTpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExZFwiO1xufVxuLnd0aWNvbi1wcmVtaXVtRGV0YWlsOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTFlXCI7XG59XG4ud3RpY29uLXByZW1pdW1GdWxsOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTFmXCI7XG59XG4ud3RpY29uLXJlY29tbWVuZGF0aW9uTGlnaHQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjBcIjtcbn1cbi53dGljb24tcmVjb21tZW5kYXRpb25MaWdodENhcmQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjFcIjtcbn1cbi53dGljb24tcmVjb21tZW5kYXRpb25MaWdodE5vU3VnZ2VzdGlvbnM6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjJcIjtcbn1cbi53dGljb24tcmVmaW5lOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTIzXCI7XG59XG4ud3RpY29uLXJld3JpdGU6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjRcIjtcbn1cbi53dGljb24tcmlnaHRDaGV2cm9uOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTI1XCI7XG59XG4ud3RpY29uLXJvY2tldDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyNlwiO1xufVxuLnd0aWNvbi1zZW50ZW5jZUV4YW1wbGVzOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTI3XCI7XG59XG4ud3RpY29uLXNldHRpbmdzOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTI4XCI7XG59XG4ud3RpY29uLXNob3J0ZW46YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjlcIjtcbn1cbi53dGljb24tdHV0b3JpYWw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMmFcIjtcbn1cbi53dGljb24tdW5sb2NrOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTJiXCI7XG59XG4ud3RpY29uLXdhcm46YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMmNcIjtcbn1cbi53dGljb24tV29yZHR1bmVCdXR0b246YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMmRcIjtcbn1cbi53dGljb24teDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyZVwiO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><script id="_carbonads_projs" type="text/javascript" src="./bootstrap_files/CKYIKKJL.json"></script></head>
+  <body>
+    <a id="skippy" class="sr-only sr-only-focusable" href="https://getbootstrap.com/docs/4.0/components/collapse/#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+
+    <a href="https://getbootstrap.com/" class="d-block px-3 py-2 text-center text-bold text-white old-bv">There's a newer version of Bootstrap 4!</a>
+
+<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+  <a class="navbar-brand mr-0 mr-md-2" href="https://getbootstrap.com/" aria-label="Bootstrap"><svg class="d-block" width="36" height="36" viewBox="0 0 612 612" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Bootstrap</title><path fill="currentColor" d="M510 8a94.3 94.3 0 0 1 94 94v408a94.3 94.3 0 0 1-94 94H102a94.3 94.3 0 0 1-94-94V102a94.3 94.3 0 0 1 94-94h408m0-8H102C45.9 0 0 45.9 0 102v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V102C612 45.9 566.1 0 510 0z"></path><path fill="currentColor" d="M196.77 471.5V154.43h124.15c54.27 0 91 31.64 91 79.1 0 33-24.17 63.72-54.71 69.21v1.76c43.07 5.49 70.75 35.82 70.75 78 0 55.81-40 89-107.45 89zm39.55-180.4h63.28c46.8 0 72.29-18.68 72.29-53 0-31.42-21.53-48.78-60-48.78h-75.57zm78.22 145.46c47.68 0 72.73-19.34 72.73-56s-25.93-55.37-76.46-55.37h-74.49v111.4z"></path></svg>
+</a>
+
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link " href="https://getbootstrap.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Bootstrap&#39;);">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Docs&#39;);">Documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="https://getbootstrap.com/docs/4.0/examples/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Examples&#39;);">Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://themes.getbootstrap.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Themes&#39;);" target="_blank" rel="noopener">Themes</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://expo.getbootstrap.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Expo&#39;);" target="_blank" rel="noopener">Expo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://blog.getbootstrap.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Navbar&#39;, &#39;Community links&#39;, &#39;Blog&#39;);" target="_blank" rel="noopener">Blog</a>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+    <li class="nav-item dropdown">
+      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="https://getbootstrap.com/docs/4.0/components/collapse/#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        v4.0
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.1/">Latest (v4.1.x)</a>
+        <a class="dropdown-item active" href="https://getbootstrap.com/docs/4.0/">v4.0.0</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com/">v4 Alpha 6</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/3.3/">v3.3.7</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/2.3.2/">v2.3.2</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link p-2" href="https://github.com/twbs/bootstrap" target="_blank" rel="noopener" aria-label="GitHub"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"></path></svg>
+</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link p-2" href="https://twitter.com/getbootstrap" target="_blank" rel="noopener" aria-label="Twitter"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 416.32" focusable="false"><title>Twitter</title><path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor"></path></svg>
+</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link p-2" href="https://bootstrap-slack.herokuapp.com/" target="_blank" rel="noopener" aria-label="Slack"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false"><title>Slack</title><path fill="currentColor" d="M210.787 234.832l68.31-22.883 22.1 65.977-68.309 22.882z"></path><path d="M490.54 185.6C437.7 9.59 361.6-31.34 185.6 21.46S-31.3 150.4 21.46 326.4 150.4 543.3 326.4 490.54 543.34 361.6 490.54 185.6zM401.7 299.8l-33.15 11.05 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.38-68.36 22.92 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.43-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.5-13.92 2.87-29.06 16.78-33.56l33.12-11.03-22.1-65.9-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.48-13.93 2.89-29.07 16.81-33.58l33.15-11.05-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.46 34.38 68.36-22.92-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.47 34.42 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.87 29.06-16.78 33.56L329.7 194.6l22.1 65.9 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.88 29.07-16.81 33.57z" fill="currentColor"></path></svg>
+</a>
+    </li>
+  </ul>
+
+  <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="https://github.com/twbs/bootstrap/archive/v4.0.0.zip">Download</a>
+</header>
+
+
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <form class="bd-search d-flex align-items-center">
+  <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input type="search" class="form-control ds-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+  <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+</button>
+</form>
+
+<nav class="collapse bd-links" id="bd-docs-nav"><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">
+        Getting started
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">
+              Introduction
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/download/">
+              Download
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/contents/">
+              Contents
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/browsers-devices/">
+              Browsers &amp; devices
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/javascript/">
+              JavaScript
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/theming/">
+              Theming
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/build-tools/">
+              Build tools
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/webpack/">
+              Webpack
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/getting-started/accessibility/">
+              Accessibility
+            </a></li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/layout/overview/">
+        Layout
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/layout/overview/">
+              Overview
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/layout/grid/">
+              Grid
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/layout/media-object/">
+              Media object
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/layout/utilities-for-layout/">
+              Utilities for layout
+            </a></li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/content/reboot/">
+        Content
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/reboot/">
+              Reboot
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/typography/">
+              Typography
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/code/">
+              Code
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/images/">
+              Images
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/tables/">
+              Tables
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/content/figures/">
+              Figures
+            </a></li></ul>
+    </div><div class="bd-toc-item active">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/components/alerts/">
+        Components
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/alerts/">
+              Alerts
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/badge/">
+              Badge
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+              Breadcrumb
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/buttons/">
+              Buttons
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/button-group/">
+              Button group
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/card/">
+              Card
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/carousel/">
+              Carousel
+            </a></li><li class="active bd-sidenav-active">
+            <a href="https://getbootstrap.com/docs/4.0/components/collapse/">
+              Collapse
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/dropdowns/">
+              Dropdowns
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/forms/">
+              Forms
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/input-group/">
+              Input group
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/jumbotron/">
+              Jumbotron
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/list-group/">
+              List group
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/modal/">
+              Modal
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/navs/">
+              Navs
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/navbar/">
+              Navbar
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/pagination/">
+              Pagination
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/popovers/">
+              Popovers
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/progress/">
+              Progress
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/scrollspy/">
+              Scrollspy
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/components/tooltips/">
+              Tooltips
+            </a></li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/utilities/borders/">
+        Utilities
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/borders/">
+              Borders
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/clearfix/">
+              Clearfix
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/close-icon/">
+              Close icon
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/colors/">
+              Colors
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/display/">
+              Display
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/embed/">
+              Embed
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/flex/">
+              Flex
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/float/">
+              Float
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/image-replacement/">
+              Image replacement
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/position/">
+              Position
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/screenreaders/">
+              Screenreaders
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/sizing/">
+              Sizing
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/spacing/">
+              Spacing
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/text/">
+              Text
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/vertical-align/">
+              Vertical align
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/utilities/visibility/">
+              Visibility
+            </a></li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/extend/approach/">
+        Extend
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/extend/approach/">
+              Approach
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/extend/icons/">
+              Icons
+            </a></li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/migration/">
+        Migration
+      </a>
+
+      <ul class="nav bd-sidenav"></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="https://getbootstrap.com/docs/4.0/about/overview/">
+        About
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="https://getbootstrap.com/docs/4.0/about/overview/">
+              Overview
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/about/brand/">
+              Brand
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/about/license/">
+              License
+            </a></li><li>
+            <a href="https://getbootstrap.com/docs/4.0/about/translations/">
+              Translations
+            </a></li></ul>
+    </div></nav>
+
+        </div>
+
+
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#example">Example</a></li>
+<li class="toc-entry toc-h2"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#multiple-targets">Multiple targets</a></li>
+<li class="toc-entry toc-h2"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#accordion-example">Accordion example</a></li>
+<li class="toc-entry toc-h2"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#accessibility">Accessibility</a></li>
+<li class="toc-entry toc-h2"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#usage">Usage</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#via-data-attributes">Via data attributes</a></li>
+<li class="toc-entry toc-h3"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#via-javascript">Via JavaScript</a></li>
+<li class="toc-entry toc-h3"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#options">Options</a></li>
+<li class="toc-entry toc-h3"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#methods">Methods</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#asynchronous-methods-and-transitions">Asynchronous methods and transitions</a></li>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#collapseoptions">.collapse(options)</a></li>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsetoggle">.collapse('toggle')</a></li>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#collapseshow">.collapse('show')</a></li>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsehide">.collapse('hide')</a></li>
+<li class="toc-entry toc-h4"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsedispose">.collapse('dispose')</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="https://getbootstrap.com/docs/4.0/components/collapse/#events">Events</a></li>
+</ul>
+</li>
+</ul>
+          </div>
+
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Collapse</h1>
+          <p class="bd-lead">Toggle the visibility of content across your project with a few classes and our JavaScript plugins.</p>
+          <script async="" src="./bootstrap_files/carbon.js" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JNCT7I42J7CWY4YKQNCWAIL2JUCYAI6Z3JCYSDTK3LCTAIT23KCKSDKK7WF6ADK27UCT7IE2JJCWYDL27KC6SDKK3LF6BDEK3EHJNCLSIZ?segment=placement:getbootstrapcom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./bootstrap_files/1657287102-1625088215-2_1_.jpeg" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JNCT7I42J7CWY4YKQNCWAIL2JUCYAI6Z3JCYSDTK3LCTAIT23KCKSDKK7WF6ADK27UCT7IE2JJCWYDL27KC6SDKK3LF6BDEK3EHJNCLSIZ?segment=placement:getbootstrapcom;" class="carbon-text" target="_blank" rel="noopener sponsored">Start building apps</a></span><a href="http://carbonads.net/?utm_source=getbootstrapcom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a><img src="./bootstrap_files/B28037489.338824937" border="0" height="1" width="1" alt="ads via Carbon" style="display: none;"><img src="./bootstrap_files/skeleton.gif" border="0" height="1" width="1" alt="ads via Carbon" style="display: none;"></span></div>
+
+          <h2 id="example"><div>Example<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#example" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h2>
+
+<p>Click the buttons below to show and hide another element via class changes:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.collapse</code> hides content</li>
+  <li><code class="highlighter-rouge">.collapsing</code> is applied during transitions</li>
+  <li><code class="highlighter-rouge">.collapse.show</code> shows content</li>
+</ul>
+
+<p>You can use a link with the <code class="highlighter-rouge">href</code> attribute, or a button with the <code class="highlighter-rouge">data-target</code> attribute. In both cases, the <code class="highlighter-rouge">data-toggle="collapse"</code> is required.</p>
+
+<div class="bd-example">
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="https://getbootstrap.com/docs/4.0/components/collapse/#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse show" id="collapseExample" style="">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#collapseExample"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"collapseExample"</span><span class="nt">&gt;</span>
+    Link with href
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#collapseExample"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"collapseExample"</span><span class="nt">&gt;</span>
+    Button with data-target
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse"</span> <span class="na">id=</span><span class="s">"collapseExample"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card card-body"</span><span class="nt">&gt;</span>
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="multiple-targets"><div>Multiple targets<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#multiple-targets" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h2>
+
+<p>A <code class="highlighter-rouge">&lt;button&gt;</code> or <code class="highlighter-rouge">&lt;a&gt;</code> can show and hide multiple elements by referencing them with a JQuery selector in its <code class="highlighter-rouge">href</code> or <code class="highlighter-rouge">data-target</code> attribute.
+Multiple <code class="highlighter-rouge">&lt;button&gt;</code> or <code class="highlighter-rouge">&lt;a&gt;</code> can show and hide an element if they each reference it with their <code class="highlighter-rouge">href</code> or <code class="highlighter-rouge">data-target</code> attribute</p>
+
+<div class="bd-example">
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="https://getbootstrap.com/docs/4.0/components/collapse/#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#multiCollapseExample1"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"multiCollapseExample1"</span><span class="nt">&gt;</span>Toggle first element<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#multiCollapseExample2"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"multiCollapseExample2"</span><span class="nt">&gt;</span>Toggle second element<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".multi-collapse"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"multiCollapseExample1 multiCollapseExample2"</span><span class="nt">&gt;</span>Toggle both elements<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse multi-collapse"</span> <span class="na">id=</span><span class="s">"multiCollapseExample1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card card-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse multi-collapse"</span> <span class="na">id=</span><span class="s">"multiCollapseExample2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card card-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="accordion-example"><div>Accordion example<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#accordion-example" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h2>
+
+<p>Using the <a href="https://getbootstrap.com/docs/4.0/components/card/">card</a> component, you can extend the default collapse behavior to create an accordion.</p>
+
+<div class="bd-example">
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-header"</span> <span class="na">id=</span><span class="s">"headingOne"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#collapseOne"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-controls=</span><span class="s">"collapseOne"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #1
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseOne"</span> <span class="na">class=</span><span class="s">"collapse show"</span> <span class="na">aria-labelledby=</span><span class="s">"headingOne"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-header"</span> <span class="na">id=</span><span class="s">"headingTwo"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#collapseTwo"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"collapseTwo"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #2
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseTwo"</span> <span class="na">class=</span><span class="s">"collapse"</span> <span class="na">aria-labelledby=</span><span class="s">"headingTwo"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-header"</span> <span class="na">id=</span><span class="s">"headingThree"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#collapseThree"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"collapseThree"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #3
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseThree"</span> <span class="na">class=</span><span class="s">"collapse"</span> <span class="na">aria-labelledby=</span><span class="s">"headingThree"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="accessibility"><div>Accessibility<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#accessibility" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h2>
+
+<p>Be sure to add <code class="highlighter-rouge">aria-expanded</code> to the control element. This attribute explicitly conveys the current state of the collapsible element tied to the control to screen readers and similar assistive technologies. If the collapsible element is closed by default, the attribute on the control element should have a value of <code class="highlighter-rouge">aria-expanded="false"</code>. If you’ve set the collapsible element to be open by default using the <code class="highlighter-rouge">show</code> class, set <code class="highlighter-rouge">aria-expanded="true"</code> on the control instead. The plugin will automatically toggle this attribute on the control based on whether or not the collapsible element has been opened or closed (via JavaScript, or because the user triggered another control element also tied to the same collapsbile element). If the control element’s HTML element is not a button (e.g., an <code class="highlighter-rouge">&lt;a&gt;</code> or <code class="highlighter-rouge">&lt;div&gt;</code>), the attribute <code class="highlighter-rouge">role="button"</code> should be added to the element.</p>
+
+<p>If your control element is targeting a single collapsible element – i.e. the <code class="highlighter-rouge">data-target</code> attribute is pointing to an <code class="highlighter-rouge">id</code> selector – you should add the <code class="highlighter-rouge">aria-controls</code> attribute to the control element, containing the <code class="highlighter-rouge">id</code> of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.</p>
+
+<p>Note that Bootstrap’s current implementation does not cover the various keyboard interactions described in the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion">WAI-ARIA Authoring Practices 1.1 accordion pattern</a> - you will need to include these yourself with custom JavaScript.</p>
+
+<h2 id="usage"><div>Usage<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#usage" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h2>
+
+<p>The collapse plugin utilizes a few classes to handle the heavy lifting:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.collapse</code> hides the content</li>
+  <li><code class="highlighter-rouge">.collapse.show</code> shows the content</li>
+  <li><code class="highlighter-rouge">.collapsing</code> is added when the transition starts, and removed when it finishes</li>
+</ul>
+
+<p>These classes can be found in <code class="highlighter-rouge">_transitions.scss</code>.</p>
+
+<h3 id="via-data-attributes"><div>Via data attributes<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#via-data-attributes" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h3>
+
+<p>Just add <code class="highlighter-rouge">data-toggle="collapse"</code> and a <code class="highlighter-rouge">data-target</code> to the element to automatically assign control of one or more collapsible elements. The <code class="highlighter-rouge">data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code class="highlighter-rouge">collapse</code> to the collapsible element. If you’d like it to default open, add the additional class <code class="highlighter-rouge">show</code>.</p>
+
+<p>To add accordion-like group management to a collapsible area, add the data attribute <code class="highlighter-rouge">data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
+
+<h3 id="via-javascript"><div>Via JavaScript<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#via-javascript" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h3>
+
+<p>Enable manually with:</p>
+
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.collapse'</span><span class="p">).</span><span class="nx">collapse</span><span class="p">()</span></code></pre></figure>
+
+<h3 id="options"><div>Options<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#options" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h3>
+
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-parent=""</code>.</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 100px;">Name</th>
+      <th style="width: 50px;">Type</th>
+      <th style="width: 50px;">Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>parent</td>
+      <td>selector | jQuery object | DOM element </td>
+      <td>false</td>
+      <td>If parent is provided, then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this is dependent on the <code>card</code> class). The attribute has to be set on the target collapsible area.</td>
+    </tr>
+    <tr>
+      <td>toggle</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Toggles the collapsible element on invocation</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="methods"><div>Methods<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#methods" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h3>
+
+<div class="bd-callout bd-callout-danger">
+<h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
+
+<p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
+
+<p><a href="https://getbootstrap.com/docs/4.0/getting-started/javascript/">See our JavaScript documentation for more information.</a></p>
+</div>
+
+<h4 id="collapseoptions"><div><code class="highlighter-rouge">.collapse(options)</code><a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#collapseoptions" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h4>
+
+<p>Activates your content as a collapsible element. Accepts an optional options <code class="highlighter-rouge">object</code>.</p>
+
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCollapsible'</span><span class="p">).</span><span class="nx">collapse</span><span class="p">({</span>
+  <span class="na">toggle</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">})</span></code></pre></figure>
+
+<h4 id="collapsetoggle"><div><code class="highlighter-rouge">.collapse('toggle')</code><a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsetoggle" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h4>
+
+<p>Toggles a collapsible element to shown or hidden. <strong>Returns to the caller before the collapsible element has actually been shown or hidden</strong> (i.e. before the <code class="highlighter-rouge">shown.bs.collapse</code> or <code class="highlighter-rouge">hidden.bs.collapse</code> event occurs).</p>
+
+<h4 id="collapseshow"><div><code class="highlighter-rouge">.collapse('show')</code><a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#collapseshow" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h4>
+
+<p>Shows a collapsible element. <strong>Returns to the caller before the collapsible element has actually been shown</strong> (i.e. before the <code class="highlighter-rouge">shown.bs.collapse</code> event occurs).</p>
+
+<h4 id="collapsehide"><div><code class="highlighter-rouge">.collapse('hide')</code><a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsehide" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h4>
+
+<p>Hides a collapsible element. <strong>Returns to the caller before the collapsible element has actually been hidden</strong> (i.e. before the <code class="highlighter-rouge">hidden.bs.collapse</code> event occurs).</p>
+
+<h4 id="collapsedispose"><div><code class="highlighter-rouge">.collapse('dispose')</code><a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#collapsedispose" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h4>
+
+<p>Destroys an element’s collapse.</p>
+
+<h3 id="events"><div>Events<a class="anchorjs-link " href="https://getbootstrap.com/docs/4.0/components/collapse/#events" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div></h3>
+
+<p>Bootstrap’s collapse class exposes a few events for hooking into collapse functionality.</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 150px;">Event Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>show.bs.collapse</td>
+      <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+    </tr>
+    <tr>
+      <td>shown.bs.collapse</td>
+      <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
+    </tr>
+    <tr>
+      <td>hide.bs.collapse</td>
+      <td>This event is fired immediately when the <code>hide</code> method has been called.</td>
+    </tr>
+    <tr>
+      <td>hidden.bs.collapse</td>
+      <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCollapsible'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.collapse'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span></code></pre></figure>
+
+
+        </main>
+      </div>
+    </div>
+
+    <script src="./bootstrap_files/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../MyDocs/viewdocuments/bootstrap_files/jquery-slim.min.js"><\/script>')</script>
+
+<script src="./bootstrap_files/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="./bootstrap_files/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="./bootstrap_files/docsearch.min.js"></script><script src="./bootstrap_files/docs.min.js"></script>
+  
+
+</body></html>
